@@ -15,7 +15,7 @@ export class ArticleListComponent implements OnInit {
   }
 
   navigateToArticle(id: number) {
-    this.router.navigate(['/article', id, { martrixParam: 'matrixParam' } ], { queryParams: { queryString: 'queryString'}});
+    this.router.navigate(['/article', id, { matrixParam: 'matrixParam' } ], { queryParams: { queryString: 'queryString'}});
     // this.router.navigateByUrl(`/article/${id}`);
   }
 
