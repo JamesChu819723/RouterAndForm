@@ -3,7 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  {
+    path: '',
+    loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule) // after angular 8
+    // loadChildren: ./features/features.module#FeaturesModule'
+  },
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({

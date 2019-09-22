@@ -4,28 +4,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { ArticleListComponent } from './article-list/article-list.component';
-import { ArticleComponent } from './article/article.component';
-import { ArticleCreateComponent } from './article-create/article-create.component';
 import { LoginComponent } from './login/login.component';
-import { FeaturesModule } from './features/features.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
-    ArticleListComponent,
-    ArticleComponent,
-    LoginComponent,
-    ArticleCreateComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FeaturesModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
