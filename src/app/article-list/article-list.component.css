@@ -1,0 +1,4 @@
+.navLink:hover {
+  cursor: pointer;
+  background-color: aqua;
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ArticleService } from '../article.service';
 
 @Component({
   selector: 'app-article-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  navigateToArticle(id: number) {
+    this.router.navigate(['/article', id, { martrixParam: 'matrixParam' } ], { queryParams: { queryString: 'queryString'}});
+    // this.router.navigateByUrl(`/article/${id}`);
   }
 
 }

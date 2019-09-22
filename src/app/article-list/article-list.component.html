@@ -1,1 +1,18 @@
-<p>article-list works!</p>
+<table class="table table-bordered table-striped m-1 p-2">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Author</th>
+      <th>Created Date</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="navLink" *ngFor="let article of articleService.Articles" (click)="navigateToArticle(article.id)">
+      <td>{{article.id}}</td>
+      <td>{{article.author}}</td>
+      <td>{{article.createdDate | date: 'yyyy/MM/dd'}}</td>
+      <td>{{article.title}}</td>
+    </tr>
+  </tbody>
+</table>
