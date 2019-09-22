@@ -9,6 +9,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { LoginComponent } from './login/login.component';
+import { FeaturesModule } from './features/features.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FeaturesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
