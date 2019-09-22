@@ -1,13 +1,13 @@
 <div class="bg-primary text-center text-white col-sm-12">
   <h1>Header</h1>
   <div class="row">
-    <a class="col-4 border text-center text-white" href="/home">
+    <a class="col-4 border text-center text-white" routerLink="/home" routerLinkActive="active">
         Home
     </a>
-    <a class="col-4 border text-center text-white" href="article">
+    <a class="col-4 border text-center text-white" [routerLink]="['/article']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       Article
     </a>
-    <a class="col-4 border text-center text-white" href="article/create">
+    <a class="col-4 border text-center text-white" [routerLink]="['/article', 'create']" routerLinkActive="active">
       Create
     </a>
   </div>
