@@ -7,11 +7,13 @@ import { ArticleCreateComponent } from './article-create/article-create.componen
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'article', component: ArticleListComponent },
-  { path: 'article/create', component: ArticleCreateComponent },
-  { path: 'article/:id', component: ArticleComponent },
+  { path: '', children: [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    { path: 'article', component: ArticleListComponent },
+    { path: 'article/create', component: ArticleCreateComponent },
+    { path: 'article/:id', component: ArticleComponent }
+  ]},
   { path: 'login', component: LoginComponent }
 ];
 
