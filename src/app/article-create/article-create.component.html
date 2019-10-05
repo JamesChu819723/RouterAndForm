@@ -4,6 +4,7 @@
     <label for="author">Author: </label>
     <input type="text" class="form-control" formControlName="author" />
     <span class="text-danger" *ngIf="form.get('author')['errors']?.required">Author is required</span>
+    <span class="text-danger" *ngIf="form.get('author')['errors']?.canNotBeJames">{{form.get('author')['errors'].canNotBeJames}}</span>
   </div>
   <div class="form-group">
     <label for="title">Title: </label>

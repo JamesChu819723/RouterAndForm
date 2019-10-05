@@ -1,8 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, Validators, FormBuilder, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ArticleService } from '../article.service';
 import { Article } from '../model/article';
+
+function canNotBeJames(control: AbstractControl): { [key: string]: any} {
+  if (control.value === 'james') {
+    return { canNotBeJames: 'value can not be james' };
+  }
+  return null;
+}
 
 @Component({
   selector: 'app-article-create',
@@ -21,7 +28,7 @@ export class ArticleCreateComponent implements OnInit {
   //   }
   // );
   form = this.fb.group({
-    author: ['', Validators.required],
+    author: ['', [Validators.required, canNotBeJames ]],
     title: ['', [Validators.required, Validators.minLength(3)]],
     paragraphs: this.fb.array([
       ['', Validators.required],
