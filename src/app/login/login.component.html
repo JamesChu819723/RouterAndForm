@@ -1,7 +1,7 @@
 <div>
   <div class="col-12 text-center h-40 bg-light">
     <h1>Login</h1>
-    <form #form="ngForm">
+    <form #form="ngForm" (ngSubmit)="login(form)" >
         <div>
             <pre>
                 {{loginModel.username}}
@@ -20,7 +20,7 @@
             </div>
 
             <span class="mt-5">&nbsp;</span>
-            <button type="button" class="bg-success" (click)="login(form)">Submit</button>&nbsp;
+            <button type="submit" class="bg-success">Submit</button>&nbsp;
             <button type="reset" class="bg-warning">Reset</button>
           </div>
     </form>
