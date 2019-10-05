@@ -31,14 +31,16 @@ export class ArticleCreateComponent implements OnInit {
   constructor(private fb: FormBuilder, private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
-    this.form.setValue({
-      author: 'james',
-      title: 'A good news',
-      paragraphs: [
-        'good paragraph 1',
-        'good paragraph 2'
-      ]
-    });
+    this.form.patchValue({ title: 'Hi, title will be replaced'});
+    this.form.patchValue( { paragraphs: [ 'only first paragraph be replaced ']});
+    // this.form.setValue({
+    //   author: 'james',
+    //   title: 'A good news',
+    //   paragraphs: [
+    //     'good paragraph 1',
+    //     'good paragraph 2'
+    //   ]
+    // });
 
     /* following code goes worng due to arguement pass to setValue must match form model */
     // this.form.setValue({
