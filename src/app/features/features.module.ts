@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FeaturesRoutingModule } from './features-routing.module';
 import { HomeComponent } from '../home/home.component';
@@ -17,7 +18,8 @@ import { ArticleService } from '../article.service';
   ],
   imports: [
     CommonModule,
-    FeaturesRoutingModule
+    FeaturesRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ ArticleService ],
   exports: [
