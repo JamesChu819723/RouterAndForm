@@ -11,6 +11,17 @@ function canNotBeJames(control: AbstractControl): { [key: string]: any} {
   return null;
 }
 
+class CustomValidators {
+  static canNotBe(value: string) {
+    return (control: AbstractControl): { [key: string]: any } => {
+      if (control.value === value) {
+        return { canNotBe: `value can not be ${value}`};
+      }
+      return null;
+    };
+  }
+}
+
 @Component({
   selector: 'app-article-create',
   templateUrl: './article-create.component.html',
@@ -28,7 +39,7 @@ export class ArticleCreateComponent implements OnInit {
   //   }
   // );
   form = this.fb.group({
-    author: ['', [Validators.required, canNotBeJames ]],
+    author: ['', [Validators.required, canNotBeJames, CustomValidators.canNotBe('angus') ]],
     title: ['', [Validators.required, Validators.minLength(3)]],
     paragraphs: this.fb.array([
       ['', Validators.required],
