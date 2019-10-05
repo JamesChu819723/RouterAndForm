@@ -39,4 +39,9 @@ export class ArticleCreateComponent implements OnInit {
       this.router.navigateByUrl('/article');
     }
   }
+
+  addParagraph() {
+    const paragraphs = this.form.get('paragraphs') as FormArray;
+    paragraphs.push(this.fb.control('', Validators.required));
+  }
 }
