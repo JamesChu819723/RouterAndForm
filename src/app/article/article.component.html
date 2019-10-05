@@ -14,7 +14,7 @@
   </div>
 
   <div class="text-center mt-2">
-    <button class="btn btn-secondary" [routerLink]="['/articles']">Back to List</button>
+    <button class="btn btn-secondary" [routerLink]="['/article']">Back to List</button>
     <button *ngIf="nextArticleId" class="btn btn-success ml-2"
     [routerLink]="['/article', nextArticleId, { matrixParam: 'matrixParamInTemplate'}]"
     [queryParams]="{queryString: 'queryStringInTemplate'}">Next
