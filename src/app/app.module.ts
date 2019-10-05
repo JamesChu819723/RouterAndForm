@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { CanNotBeDirective } from './can-not-be.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LayoutComponent } from './layout/layout.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    CanNotBeDirective
   ],
   imports: [
     BrowserModule,

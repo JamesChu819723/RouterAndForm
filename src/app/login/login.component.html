@@ -5,22 +5,24 @@
       <div>
         <div class="form-group">
           <label for="username">UserName:</label>
-          <input class="form-control" name="username" type="text" [(ngModel)]="loginModel.username" required email
+          <input class="form-control" name="username" type="text" [(ngModel)]="loginModel.username" required email canNotBe="james"
             #username="ngModel" #usernameDOM />
         </div>
         <span class="text-danger" *ngIf="username.dirty">
             <span *ngIf="username['errors']?.required">UserName is required</span>
-            <span *ngIf="username['errors']?.email">Invalid email format</span>
+            <span *ngIf="username['errors']?.email">Invalid email format<br /></span>
+            <span *ngIf="username['errors']?.canNotBe">{{username['errors'].canNotBe}}</span>
         </span>
         <div class="form-group">
           <label for="password" class="col-xs-3">Password:</label>
           <input class="form-control" name="password" type="password" [(ngModel)]="loginModel.password" required minlength="3"
-            maxlength="10" pattern="^\w*$" #password="ngModel" #passwordDOM />
+            maxlength="10" pattern="^\w*$" canNotBe="will" #password="ngModel" #passwordDOM />
         </div>
         <span class="text-danger" *ngIf="password.dirty">
             <span *ngIf="password['errors']?.required">password is required</span>
-            <span *ngIf="password['errors']?.minlength">password must greater than {{password['errors'].minlength.requiredLength}} words</span>
-            <span *ngIf="password['errors']?.pattern">Invalid password format</span>
+            <span *ngIf="password['errors']?.minlength">password must greater than {{password['errors'].minlength.requiredLength}} words<br /></span>
+            <span *ngIf="password['errors']?.pattern">Invalid password format<br /></span>
+            <span *ngIf="password['errors']?.canNotBe">{{password['errors'].canNotBe}}<br /></span>
             <br />
         </span>
 
