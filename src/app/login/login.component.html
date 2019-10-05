@@ -1,28 +1,80 @@
 <div>
   <div class="col-12 text-center h-40 bg-light">
+    <pre>
+          <span class="text-primary">
+              loginModel: {{loginModel | json}}
+              form.value: {{form.value | json}}
+          </span>
+          <span class="text-warning">
+            form.submitted: {{form.submitted}}
+          </span>
+          form.valid: {{form.valid}}
+          form.invalid: {{form.invalid}}
+          form.touched: {{form.touched}}
+          form.untouched: {{form.untouched}}
+          form.pristine: {{form.pristine}}
+          form.dirty: {{form.dirty}}
+          <span class="text-danger">
+              form.errors: {{ form.errors | json}}
+          </span>
+          <p class="text-success">
+              formDOM.classList(css class): {{formDOM.classList | json}}
+          </p>
+      </pre>
     <h1>Login</h1>
-    <form #form="ngForm" (ngSubmit)="login(form)" >
-        <div>
-            <pre>
-                {{loginModel.username}}
+    <form #form="ngForm" #formDOM (ngSubmit)="login(form)">
+      <div>
+        <pre>
+            <span class="text-primary">
+                loginModel.username: {{loginModel.username}}
+                username.value: {{username.value}}
+            </span>
+                username.valid: {{username.valid}}
+                username.invalid: {{username.invalid}}
+                username.touched: {{username.touched}}
+                username.untouched: {{username.untouched}}
+                username.pristine: {{username.pristine}}
+                username.dirty: {{username.dirty}}
+                <span class="text-danger">
+                  username.errors: {{ username.errors | json}}
+                </span>
+                <p class="text-success">
+                    usernameDOM.classList(css class): {{usernameDOM.classList | json}}
+                </p>
             </pre>
-            <div class="form-group">
-              <label for="username">UserName:</label>
-              <input class="form-control" name="username" type="text" [(ngModel)]="loginModel.username" required email />
-            </div>
-            <pre>
-                {{loginModel.password}}
+        <div class="form-group">
+          <label for="username">UserName:</label>
+          <input class="form-control" name="username" type="text" [(ngModel)]="loginModel.username" required email
+            #username="ngModel" #usernameDOM />
+        </div>
+        <pre>
+            <span class="text-primary">
+                loginModel.password: {{loginModel.password}}
+                password.value: {{password.value}}
+            </span>
+                password.valid: {{password.valid}}
+                password.invalid: {{password.invalid}}
+                password.touched: {{password.touched}}
+                password.untouched: {{password.untouched}}
+                password.pristine: {{password.pristine}}
+                password.dirty: {{password.dirty}}
+                <span class="text-danger">
+                    password.errors: {{ password.errors | json}}
+                  </span>
+                <p class="text-success">
+                    passwordDOM.classList(css class): {{passwordDOM.classList | json}}
+                </p>
             </pre>
-            <div class="form-group">
-              <label for="password" class="col-xs-3">Password:</label>
-              <input class="form-control" name="password" type="password" [(ngModel)]="loginModel.password"
-              minlength="3" maxlength="10" pattern="^\w*$" />
-            </div>
+        <div class="form-group">
+          <label for="password" class="col-xs-3">Password:</label>
+          <input class="form-control" name="password" type="password" [(ngModel)]="loginModel.password" minlength="3"
+            maxlength="10" pattern="^\w*$" #password="ngModel" #passwordDOM />
+        </div>
 
-            <span class="mt-5">&nbsp;</span>
-            <button type="submit" class="bg-success">Submit</button>&nbsp;
-            <button type="reset" class="bg-warning">Reset</button>
-          </div>
+        <span class="mt-5">&nbsp;</span>
+        <button type="submit" class="bg-success">Submit</button>&nbsp;
+        <button type="reset" class="bg-warning">Reset</button>
+      </div>
     </form>
   </div>
 </div>
