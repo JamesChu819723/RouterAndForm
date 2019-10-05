@@ -1,5 +1,5 @@
 <h1 class="m-1 text-center">New Article</h1>
-<form class="m-2" [formGroup]="form">
+<form class="m-2" [formGroup]="form" (ngSubmit)="addArticle()">
   <div class="form-group">
     <label for="author">Author: </label>
     <input type="text" class="form-control" formControlName="author" />

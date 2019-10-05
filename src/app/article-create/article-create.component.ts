@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ArticleService } from '../article.service';
+import { Article } from '../model/article';
 
 @Component({
   selector: 'app-article-create',
@@ -25,9 +28,15 @@ export class ArticleCreateComponent implements OnInit {
       ['good paragraph 2', Validators.required]
     ])
   });
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  addArticle() {
+    if (this.form.valid) {
+      this.articleService.addArticle(this.form.value);
+      this.router.navigateByUrl('/article');
+    }
+  }
 }
