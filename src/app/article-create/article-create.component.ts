@@ -21,16 +21,33 @@ export class ArticleCreateComponent implements OnInit {
   //   }
   // );
   form = this.fb.group({
-    author: ['james', Validators.required],
-    title: ['A good news', [Validators.required, Validators.minLength(3)]],
+    author: ['', Validators.required],
+    title: ['', [Validators.required, Validators.minLength(3)]],
     paragraphs: this.fb.array([
-      ['good paragraph 1', Validators.required],
-      ['good paragraph 2', Validators.required]
+      ['', Validators.required],
+      ['', Validators.required]
     ])
   });
   constructor(private fb: FormBuilder, private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
+    this.form.setValue({
+      author: 'james',
+      title: 'A good news',
+      paragraphs: [
+        'good paragraph 1',
+        'good paragraph 2'
+      ]
+    });
+
+    /* following code goes worng due to arguement pass to setValue must match form model */
+    // this.form.setValue({
+    //   author: 'james',
+    //   title: 'A good news',
+    //   paragraphs: [
+    //     'good paragraph 1'
+    //   ]
+    // });
   }
 
   addArticle() {
