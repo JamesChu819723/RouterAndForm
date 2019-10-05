@@ -22,7 +22,7 @@ export class ArticleCreateComponent implements OnInit {
   // );
   form = this.fb.group({
     author: ['james', Validators.required],
-    title: ['A good news', [Validators.minLength(3)]],
+    title: ['A good news', [Validators.required, Validators.minLength(3)]],
     paragraphs: this.fb.array([
       ['good paragraph 1', Validators.required],
       ['good paragraph 2', Validators.required]
