@@ -1,25 +1,27 @@
 <div>
   <div class="col-12 text-center h-40 bg-light">
     <h1>Login</h1>
-    <div>
-      <pre>
-          {{loginModel.username}}
-      </pre>
-      <div class="form-group">
-        <label for="username">UserName:</label>
-        <input class="form-control" type="text" [(ngModel)]="loginModel.username" />
-      </div>
-      <pre>
-          {{loginModel.password}}
-      </pre>
-      <div class="form-group">
-        <label for="password" class="col-xs-3">Password:</label>
-        <input class="form-control" type="password" [(ngModel)]="loginModel.password" />
-      </div>
+    <form>
+        <div>
+            <pre>
+                {{loginModel.username}}
+            </pre>
+            <div class="form-group">
+              <label for="username">UserName:</label>
+              <input class="form-control" type="text" [(ngModel)]="loginModel.username" [ngModelOptions]="{standalone: true}" />
+            </div>
+            <pre>
+                {{loginModel.password}}
+            </pre>
+            <div class="form-group">
+              <label for="password" class="col-xs-3">Password:</label>
+              <input class="form-control" type="password" [(ngModel)]="loginModel.password" [ngModelOptions]="{standalone: true}" />
+            </div>
 
-      <span class="mt-5">&nbsp;</span>
-      <button type="button" class="bg-success">Submit</button>&nbsp;
-      <button type="reset" class="bg-warning">Reset</button>
-    </div>
+            <span class="mt-5">&nbsp;</span>
+            <button type="button" class="bg-success">Submit</button>&nbsp;
+            <button type="reset" class="bg-warning">Reset</button>
+          </div>
+    </form>
   </div>
 </div>
