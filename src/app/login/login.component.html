@@ -1,25 +1,26 @@
 <div>
   <div class="col-12 text-center h-40 bg-light">
     <h1>Login</h1>
-    <form>
+    <form #form="ngForm">
         <div>
             <pre>
                 {{loginModel.username}}
             </pre>
             <div class="form-group">
               <label for="username">UserName:</label>
-              <input class="form-control" type="text" [(ngModel)]="loginModel.username" [ngModelOptions]="{standalone: true}" />
+              <input class="form-control" name="username" type="text" [(ngModel)]="loginModel.username" required email />
             </div>
             <pre>
                 {{loginModel.password}}
             </pre>
             <div class="form-group">
               <label for="password" class="col-xs-3">Password:</label>
-              <input class="form-control" type="password" [(ngModel)]="loginModel.password" [ngModelOptions]="{standalone: true}" />
+              <input class="form-control" name="password" type="password" [(ngModel)]="loginModel.password"
+              minlength="3" maxlength="10" pattern="^\w*$" />
             </div>
 
             <span class="mt-5">&nbsp;</span>
-            <button type="button" class="bg-success">Submit</button>&nbsp;
+            <button type="button" class="bg-success" (click)="login(form)">Submit</button>&nbsp;
             <button type="reset" class="bg-warning">Reset</button>
           </div>
     </form>
